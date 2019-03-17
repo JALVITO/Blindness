@@ -5,19 +5,21 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
 
-	private GameObject bullet;
-	private GameObject shotSpawn;
+	[SerializeField] private GameObject bullet;
+	[SerializeField] private Transform shotSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        bullet.AddComponent<Bullet>();
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            GameObject bullet = Instantiate(bullet, shotSpawn.Transform.position);
+        if (Input.GetMouseButtonDown(0)){
+            Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
+        }
     }
 }
