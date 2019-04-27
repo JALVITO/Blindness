@@ -18,7 +18,7 @@ public class MyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      Debug.Log("ur mom gety");
+      // Debug.Log("ur mom gety");
       light= Instance.GetComponent<Light>();
       light.type = LightType.Point;
       rb = Instance.GetComponent<Rigidbody>();

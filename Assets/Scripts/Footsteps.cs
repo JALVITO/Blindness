@@ -6,6 +6,7 @@ public class Footsteps : MonoBehaviour
 {	
 
 	private Light footLight;
+    [SerializeField] private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,14 @@ public class Footsteps : MonoBehaviour
         
     }
 
-    public IEnumerator drawSound(int i, int r){
+    public IEnumerator drawSound(int i, int r, bool isWalking){
+
+        if (isWalking){
+            player.GetComponent<SoundSource>().addSound(3);
+        }
+        else{
+            player.GetComponent<SoundSource>().addSound(6);
+        }
 
     	footLight.intensity = i;
     	footLight.range = r;

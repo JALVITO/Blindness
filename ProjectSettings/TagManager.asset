@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Inanimate
+  - Enemy
   layers:
   - Default
   - TransparentFX
