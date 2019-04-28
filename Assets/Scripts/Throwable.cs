@@ -12,6 +12,7 @@ public class Throwable : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwSpeed);
+        Debug.Log(this.name);
     }
 
     void Update(){

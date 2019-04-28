@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3237661062140633881}
   m_Layer: 0
   m_Name: Mug
-  m_TagString: Untagged
+  m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1b335015a78ae46b97419b92ac085c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 20
+  throwSpeed: 400
 --- !u!136 &1843529482105455428
 CapsuleCollider:
   m_ObjectHideFlags: 0
