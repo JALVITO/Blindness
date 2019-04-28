@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9111262502124386342}
   m_LocalRotation: {x: -0.5010868, y: -0.5002657, z: 0.4933096, w: 0.5052642}
-  m_LocalPosition: {x: -45.213238, y: 67.47647, z: -61.704975}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.976888, y: 8.976888, z: 8.976887}
   m_Children: []
   m_Father: {fileID: 1270063005227047080}
@@ -87,22 +87,22 @@ PrefabInstance:
     - target: {fileID: 2925249288224221029, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
         type: 3}
       propertyPath: m_Name
-      value: Throwable
+      value: Coffee Mug
       objectReference: {fileID: 0}
     - target: {fileID: 4001245137091925054, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.393764
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001245137091925054, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.636475
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001245137091925054, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.4240274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001245137091925054, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
         type: 3}
@@ -143,6 +143,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964463755658891111, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 17.07515
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964463755658891111, guid: f56d98bfc97c2a84ea6a1a2618612f9f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -4.8538055
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56d98bfc97c2a84ea6a1a2618612f9f, type: 3}

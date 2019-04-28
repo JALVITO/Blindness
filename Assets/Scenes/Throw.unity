@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2094e8c49b1c048afda77401f067c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 1062847763796093939, guid: 98d5a9babaa9871418e442de65457f8e, type: 3}
+  item: {fileID: 6416476021288172619, guid: 1fdbba13ed5c1264c81d8d8f4032aa80, type: 3}
   shotSpawn: {fileID: 163015759}
 --- !u!4 &1310291506 stripped
 Transform:
