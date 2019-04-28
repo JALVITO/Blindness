@@ -23,7 +23,7 @@ public class SoundSource : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if (col.gameObject.tag == "Enemy")
-            Debug.Log("Heard you");
+            col.gameObject.GetComponent<Enemy>().trigger(GetComponent<SphereCollider>());
     }
 
     public void addSound(float newSound){
