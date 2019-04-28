@@ -71,8 +71,11 @@
      <Compile Include="Assets\Scripts\Footsteps.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\MyBullet.cs" />
+     <Compile Include="Assets\Scripts\Pickup.cs" />
      <Compile Include="Assets\Scripts\Shoot.cs" />
      <Compile Include="Assets\Scripts\SoundSource.cs" />
+     <Compile Include="Assets\Scripts\Throw.cs" />
+     <Compile Include="Assets\Scripts\Throwable.cs" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
