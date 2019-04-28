@@ -18,7 +18,7 @@ public class MyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      Debug.Log("ur mom gety");
+      // Debug.Log("ur mom gety");
       light= Instance.GetComponent<Light>();
       light.type = LightType.Point;
       rb = Instance.GetComponent<Rigidbody>();
@@ -48,10 +48,18 @@ public class MyBullet : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col){
-      // Debug.Log("Entered col");
-      if((col.gameObject.transform.parent && col.gameObject.transform.parent.tag == "Inanimate") || col.gameObject.tag == "Inanimate"){
-        // Debug.Log("inanimate");
-        StartCoroutine(killBullet(0.02F));
+
+      Debug.Log(col.gameObject.name);
+
+      if (col.gameObject.tag != "Intangible"){
+          if (col.gameObject.tag == "Player"){
+            col.gameObject.GetComponent<Game>().affectHP(-34);
+          }
+          if (col.gameObject.tag == "Enemy"){
+            col.gameObject.GetComponent<Enemy>().affectHP(-34);
+          }
+
+          StartCoroutine(killBullet(0.02F));
       }
     }
 }

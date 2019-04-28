@@ -91,7 +91,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_AudioSource.clip = m_LandSound;
             m_AudioSource.Play();
-            StartCoroutine(footstepScript.drawSound(4,7));
+            StartCoroutine(footstepScript.drawSound(4,7,false));
             m_NextStep = 1;
         }
 
@@ -142,7 +142,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_AudioSource.clip = m_JumpSound;
             m_AudioSource.Play();
-            StartCoroutine(footstepScript.drawSound(3,5));
+            StartCoroutine(footstepScript.drawSound(3,5,m_IsWalking));
         }
 
 
@@ -177,7 +177,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource.clip = m_FootstepSounds[n];
             m_AudioSource.PlayOneShot(m_AudioSource.clip);
 
-            StartCoroutine(footstepScript.drawSound(3,5));
+            StartCoroutine(footstepScript.drawSound(3,5,m_IsWalking));
 
             // move picked sound to index 0 so it's not picked next time
             m_FootstepSounds[n] = m_FootstepSounds[0];
