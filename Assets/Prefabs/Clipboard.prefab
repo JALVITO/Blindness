@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwSpeed: 500
+  itemHit: {fileID: 7492958425146833711, guid: 057239f41a5b82d49af12b101cdad25d, type: 3}

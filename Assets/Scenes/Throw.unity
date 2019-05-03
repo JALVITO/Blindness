@@ -118,8 +118,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1852565473}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &22529033
-MeshCollider:
+--- !u!65 &22529033
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,10 +128,25 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 3ff5e556f9ccf274c91259a224ea7ac0, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02838791, y: 0.019999998, z: 0.0027170458}
+  m_Center: {x: 0.004193954, y: 4.5970314e-18, z: -0.0012202215}
+--- !u!54 &22529035
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22529029}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &58838506
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4d9f6be7b444f64a193728709d69ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!108 &58838508
 Light:
   m_ObjectHideFlags: 0
@@ -313,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810029330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.65, y: 31.57, z: -69.26}
+  m_LocalPosition: {x: -77.65, y: 31.57, z: -75.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -431,6 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 941435169716827870, guid: a232486a302e84245aa3b6227b93f62d, type: 3}
   shotSpawn: {fileID: 163015759}
+  player: {fileID: 0}
 --- !u!114 &1310291502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +628,14 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 3ff5e556f9ccf274c91259a224ea7ac0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 3ff5e556f9ccf274c91259a224ea7ac0, type: 3}
+      propertyPath: m_TagString
+      value: Inanimate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3ff5e556f9ccf274c91259a224ea7ac0, type: 3}
+      propertyPath: m_TagString
+      value: Inanimate
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3ff5e556f9ccf274c91259a224ea7ac0, type: 3}
       propertyPath: m_LocalPosition.x

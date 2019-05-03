@@ -17,7 +17,7 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      Debug.Log("AAAAAAH");
+      // Debug.Log("AAAAAAH");
         if(Input.GetKeyDown(KeyCode.E)){
           Debug.Log("E");
           Ray ray = cam.ViewportPointToRay(new  Vector3(0.5F, 0.5F, 0));

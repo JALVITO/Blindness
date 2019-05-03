@@ -7,6 +7,7 @@ public class Throwable : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private int throwSpeed;
     private Rigidbody rb;
+    [SerializeField] GameObject itemHit;
     
     void Start()
     {
@@ -16,7 +17,17 @@ public class Throwable : MonoBehaviour
     }
 
     void Update(){
-      Debug.Log(rb.velocity);
+      // Debug.Log(rb.velocity);
+    }
+
+    void OnCollisionEnter(Collision colInfo) {
+      Debug.Log("COLLISIONED");
+      Debug.Log(colInfo.transform.name);
+      if(colInfo.transform.tag=="Inanimate"){
+        Debug.Log("Inan");
+        Instantiate(itemHit,  
+        colInfo.contacts[colInfo.contactCount-1].point, gameObject.transform.rotation);
+      }
     }
 
 }
