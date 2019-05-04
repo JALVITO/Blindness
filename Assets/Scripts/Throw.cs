@@ -24,8 +24,8 @@ public class Throw : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1) && items.Count >0 ) {
           myName = (string)items.Pop();
-          Debug.Log(myName);
-          Debug.Log("THROWN");
+          // Debug.Log(myName);
+          // Debug.Log("THROWN");
           int index= -1;
           switch (myName)
           {
