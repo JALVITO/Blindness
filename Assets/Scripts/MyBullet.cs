@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MyBullet : MonoBehaviour
 {
-	[SerializeField] private int bulletSpeed;
+	public int bulletSpeed;
+
+  public Weapon weapon;
 
 	private Rigidbody rb;
 	private Light light;
@@ -14,11 +16,13 @@ public class MyBullet : MonoBehaviour
      
      void Awake(){
         Instance = this;
+        
      }
     // Start is called before the first frame update
     void Start()
     {
       // Debug.Log("ur mom gety");
+      int range = weapon.range;
       light= Instance.GetComponent<Light>();
       light.type = LightType.Point;
       rb = Instance.GetComponent<Rigidbody>();
@@ -27,6 +31,8 @@ public class MyBullet : MonoBehaviour
       // Debug.Log("X: " + transform.forward.x);
       // Debug.Log("Y: " + transform.forward.y);
       // Debug.Log("Z: " + transform.forward.z);
+      Debug.Log(range);
+      StartCoroutine(despawnBullet(range));
     }
 
     // Update is called once per frame
@@ -47,19 +53,26 @@ public class MyBullet : MonoBehaviour
 
     }
 
+    public IEnumerator despawnBullet(int range){
+      yield return new WaitForSeconds(range);
+      StartCoroutine(killBullet(0.1F));
+    }
+
     void OnCollisionEnter(Collision col){
 
-      Debug.Log(col.gameObject.name);
-
-      if (col.gameObject.tag != "Intangible"){
-          if (col.gameObject.tag == "Player"){
-            col.gameObject.GetComponent<Game>().affectHP(-34);
-          }
-          if (col.gameObject.tag == "Enemy"){
-            col.gameObject.GetComponent<Enemy>().affectHP(-34);
-          }
-
-          StartCoroutine(killBullet(0.02F));
+      // Debug.Log(col.gameObject.name);
+      if (col.gameObject.tag == "Inanimate"){
+        StartCoroutine(killBullet(0.02F));
+      } 
+      else if (col.gameObject.tag != "Intangible"){
+        Destroy(gameObject);
+        int damage = weapon.damage; 
+        if (col.gameObject.tag == "Player"){
+          col.gameObject.GetComponent<Game>().affectHP(-damage);
+        }
+        else if (col.gameObject.tag == "Enemy"){
+          col.gameObject.GetComponent<Enemy>().affectHP(-damage);
+        }
       }
     }
 }

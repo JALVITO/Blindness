@@ -11,6 +11,7 @@ TagManager:
   - Throwable
   - Key
   - Door
+  - Weapon
   layers:
   - Default
   - TransparentFX
