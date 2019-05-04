@@ -11,7 +11,9 @@ public class Enemy : MonoBehaviour
     RaycastHit hit;
 
     bool triggered;
+    bool triggeredLast;
     bool allowFire;
+    GameObject FPSController;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject firstCheckpoint;
     [SerializeField] private int sightRange;
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
     {
         HP = 100;
         allowFire = true;
+        FPSController = player.transform.parent.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(firstCheckpoint.transform.position);
     }
@@ -31,8 +34,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (triggeredLast && !triggered)
+            FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
+        else if (!triggeredLast && triggered)
+            FPSController.GetComponent<Game>().affectTriggeredEnemies(1);
 
-        //Debug.Log("Am Triggered: " + triggered);
+        triggeredLast = triggered;
+        // Debug.Log("Am Triggered: " + triggered);
 
         ray.origin = transform.position;
         ray.direction = player.transform.position-transform.position;
@@ -62,6 +70,7 @@ public class Enemy : MonoBehaviour
         HP += delta;
         if (HP <= 0){
             Debug.Log("Enemy dead");
+            FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
             Destroy(gameObject);
         }
     }

@@ -49,7 +49,7 @@ public class MyBullet : MonoBehaviour
 
     void OnCollisionEnter(Collision col){
 
-      Debug.Log(col.gameObject.name);
+      // Debug.Log(col.gameObject.name);
 
       if (col.gameObject.tag != "Intangible"){
           if (col.gameObject.tag == "Player"){
