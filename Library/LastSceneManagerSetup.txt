@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Throw.unity
+- path: Assets/Scenes/L1 Pillars.unity
   isLoaded: 1
   isActive: 1

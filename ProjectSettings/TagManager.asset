@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Intangible
   - Throwable
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX

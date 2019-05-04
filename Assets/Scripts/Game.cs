@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-
+    public bool hasKey;
     private int HP;
 
     // Start is called before the first frame update
@@ -19,4 +19,6 @@ public class Game : MonoBehaviour
             Debug.Log("You died");
         }
     }
+    
+
 }
