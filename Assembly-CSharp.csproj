@@ -65,6 +65,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Checkpoints.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\FirstPersonController.cs" />
@@ -76,6 +77,7 @@
      <Compile Include="Assets\Scripts\SoundSource.cs" />
      <Compile Include="Assets\Scripts\Throw.cs" />
      <Compile Include="Assets\Scripts\Throwable.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
