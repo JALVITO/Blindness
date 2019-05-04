@@ -17,7 +17,7 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      Debug.Log("AAAAAAH");
+      //Debug.Log("AAAAAAH");
         if(Input.GetKeyDown(KeyCode.E)){
           Debug.Log("E");
           Ray ray = cam.ViewportPointToRay(new  Vector3(0.5F, 0.5F, 0));
@@ -28,6 +28,19 @@ public class Pickup : MonoBehaviour
                 Debug.Log("throwable");
                 inventory.addItem(hit.transform.name);
                 Destroy(hit.transform.gameObject);
+              }
+              else if (hit.transform.tag == "Weapon"){
+                Transform player = character.transform.GetChild(0);
+                if (character.GetComponent<Game>().hasWeapon){
+                  character.GetComponent<Shoot>().ThrowWeapon();
+                }
+                hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                hit.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                hit.transform.parent = player;
+                hit.transform.localPosition = new Vector3(0.3F,-0.3F,0.7F);
+                hit.transform.localRotation = new Quaternion(0,0,0,0);
+                hit.transform.Rotate(0,90,0);
+                character.GetComponent<Game>().hasWeapon = true;
               }
           else
               print("I'm looking at nothing!");

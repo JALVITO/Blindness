@@ -70,8 +70,10 @@ public class Enemy : MonoBehaviour
         HP += delta;
         if (HP <= 0){
             Debug.Log("Enemy dead");
+            ThrowWeapon();
             FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
-            Destroy(gameObject);
+            gameObject.GetComponent<AudioSource>().Play();
+            StartCoroutine(enemyFall());
         }
     }
 
@@ -82,8 +84,26 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator fireAtPlayer(){
         allowFire = false;
-        Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
-        yield return new WaitForSeconds(1F);
+        GameObject newbullet = Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
+        newbullet.GetComponent<MyBullet>().weapon = transform.GetChild(1).gameObject.GetComponent<Weapon>();
+        
+        yield return new WaitForSeconds(transform.GetChild(1).gameObject.GetComponent<Weapon>().rof);
         allowFire = true;
+    }
+
+    public IEnumerator enemyFall(){
+        for (int x = 0; x < 90; x+=3){
+            gameObject.transform.Rotate(-x,0,0);
+            yield return new WaitForSeconds(0.001F);
+        }
+        Destroy(gameObject);
+    }
+
+    private void ThrowWeapon(){
+        GameObject curGun = gameObject.transform.GetChild(1).gameObject;
+        curGun.GetComponent<Rigidbody>().isKinematic = false;
+        curGun.GetComponent<Rigidbody>().useGravity = true;
+        curGun.transform.parent = null;
+        curGun.GetComponent<Rigidbody>().AddForce(curGun.transform.forward * 800);
     }
 }
