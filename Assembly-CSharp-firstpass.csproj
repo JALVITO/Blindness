@@ -183,19 +183,19 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -401,14 +401,14 @@
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Analytics.Tracker">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>/Users/juanlizarraga/Documents/4toSemestre/Videojuegos/Final Project/Unity/Blindness/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.Tracker">
+ <HintPath>/Users/monicanava/Desktop/Blindness/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
