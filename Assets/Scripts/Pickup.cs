@@ -42,6 +42,7 @@ public class Pickup : MonoBehaviour
                 }
               } else if (hit.transform.tag == "Weapon"){
                 Transform player = character.transform.GetChild(0);
+                
                 if (character.GetComponent<Game>().hasWeapon){
                   character.GetComponent<Shoot>().ThrowWeapon();
                 }
@@ -55,6 +56,9 @@ public class Pickup : MonoBehaviour
 				else
 						hit.transform.Rotate(0,90,0);
                 character.GetComponent<Game>().hasWeapon = true;
+
+                GUIupdater gui = gameObject.GetComponent<GUIupdater>();
+                gui.weapon = hit.transform.gameObject.GetComponent<Weapon>();
               }
            } else {
               // print("I'm looking at nothing!");
