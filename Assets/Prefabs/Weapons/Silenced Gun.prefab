@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c336860900a46bc879dc1695134e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 7
+  ammo: 10
   range: 1
-  rof: 1.25
+  rof: 0.5
   damage: 25
   noise: 4
   speed: 12

@@ -81,10 +81,10 @@ public class MyBullet : MonoBehaviour
         Destroy(gameObject);
         int damage = weapon.damage; 
         if (col.gameObject.tag == "Player" && !fromPlayer){
-          col.gameObject.GetComponent<Game>().affectHP(-damage);
+          col.gameObject.GetComponent<Game>().affectHP((int)(-damage*0.5));
         }
         else if (col.gameObject.tag == "Enemy"){
-          col.gameObject.GetComponent<Enemy>().affectHP((int)(-damage*0.5));
+          col.gameObject.GetComponent<Enemy>().affectHP(-damage);
         }
       }
     }

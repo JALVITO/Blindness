@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     bool hasWeapon;
     bool waiting;
     GameObject FPSController;
+    GameObject curGun;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject firstCheckpoint;
     [SerializeField] private int sightRange;
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         allowFire = true;
         hasWeapon = true;
         rof = transform.GetChild(1).gameObject.GetComponent<Weapon>().rof;
+        curGun = gameObject.transform.GetChild(1).gameObject;
         FPSController = player.transform.parent.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(firstCheckpoint.transform.position);
@@ -115,7 +117,6 @@ public class Enemy : MonoBehaviour
     }
 
     private void ThrowWeapon(){
-        GameObject curGun = gameObject.transform.GetChild(1).gameObject;
         curGun.GetComponent<Rigidbody>().isKinematic = false;
         curGun.GetComponent<Rigidbody>().useGravity = true;
         curGun.transform.parent = null;
