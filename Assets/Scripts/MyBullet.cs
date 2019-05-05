@@ -35,15 +35,16 @@ public class MyBullet : MonoBehaviour
       // Debug.Log("Y: " + transform.forward.y);
       // Debug.Log("Z: " + transform.forward.z);
       // Debug.Log(range);
-		if(weapon.type == 1){
-			gameObject.GetComponents<AudioSource>()[0].Play();
-		} 
-		if(weapon.type == 2){
-			gameObject.GetComponents<AudioSource>()[1].Play();
-		}
-		else{
-			gameObject.GetComponents<AudioSource>()[2].Play();
-		}
+		// if(weapon.type == 1){
+		// 	gameObject.GetComponents<AudioSource>()[0].Play();
+		// } 
+		// if(weapon.type == 2){
+		// 	gameObject.GetComponents<AudioSource>()[1].Play();
+		// }
+		// else{
+		// 	gameObject.GetComponents<AudioSource>()[2].Play();
+		// }
+      gameObject.GetComponents<AudioSource>()[weapon.type-1].Play();
       StartCoroutine(despawnBullet(range));
     }
 
@@ -83,7 +84,7 @@ public class MyBullet : MonoBehaviour
           col.gameObject.GetComponent<Game>().affectHP(-damage);
         }
         else if (col.gameObject.tag == "Enemy"){
-          col.gameObject.GetComponent<Enemy>().affectHP(-damage);
+          col.gameObject.GetComponent<Enemy>().affectHP((int)(-damage*0.5));
         }
       }
     }

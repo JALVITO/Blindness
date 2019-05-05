@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3675864362646239889}
   - component: {fileID: 3864049936224402844}
   - component: {fileID: 7061356316323530028}
-  - component: {fileID: 4241692723316207003}
-  - component: {fileID: 8074497662571809658}
   - component: {fileID: 2394964022905341610}
+  - component: {fileID: 8074497662571809658}
+  - component: {fileID: 4241692723316207003}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
+  fromPlayer: 0
   weapon: {fileID: 0}
 --- !u!54 &7061356316323530028
 Rigidbody:
@@ -105,7 +106,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!82 &4241692723316207003
+--- !u!82 &2394964022905341610
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +116,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a59b0368ca1e64cf89140bb8e6ede215, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b1c93f173fa404e99858e3d909c7b189, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -297,7 +298,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2394964022905341610
+--- !u!82 &4241692723316207003
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,7 +308,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1c93f173fa404e99858e3d909c7b189, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a59b0368ca1e64cf89140bb8e6ede215, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
