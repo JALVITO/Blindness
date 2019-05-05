@@ -50,7 +50,10 @@ public class Pickup : MonoBehaviour
                 hit.transform.parent = player;
                 hit.transform.localPosition = new Vector3(0.3F,-0.3F,0.7F);
                 hit.transform.localRotation = new Quaternion(0,0,0,0);
-                hit.transform.Rotate(0,90,0);
+				if (hit.transform.gameObject.GetComponent<Weapon>().type == 3)
+						hit.transform.Rotate(0,180,0);
+				else
+						hit.transform.Rotate(0,90,0);
                 character.GetComponent<Game>().hasWeapon = true;
               }
            } else {
