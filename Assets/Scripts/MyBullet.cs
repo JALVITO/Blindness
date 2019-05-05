@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MyBullet : MonoBehaviour
 {
 	public int bulletSpeed;
@@ -26,12 +27,21 @@ public class MyBullet : MonoBehaviour
       light= Instance.GetComponent<Light>();
       light.type = LightType.Point;
       rb = Instance.GetComponent<Rigidbody>();
-      rb.velocity = transform.forward * bulletSpeed;
+      rb.velocity = transform.forward * weapon.speed;
       rend = Instance.GetComponentInChildren<Renderer>();
       // Debug.Log("X: " + transform.forward.x);
       // Debug.Log("Y: " + transform.forward.y);
       // Debug.Log("Z: " + transform.forward.z);
       // Debug.Log(range);
+		if(weapon.type == 1){
+			gameObject.GetComponents<AudioSource>()[0].Play();
+		} 
+		if(weapon.type == 2){
+			gameObject.GetComponents<AudioSource>()[1].Play();
+		}
+		else{
+			gameObject.GetComponents<AudioSource>()[2].Play();
+		}
       StartCoroutine(despawnBullet(range));
     }
 
