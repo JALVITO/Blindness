@@ -47,6 +47,7 @@ public class Shoot : MonoBehaviour
         player.GetComponent<SoundSource>().addSound(weapon.noise);
         GameObject newbullet = Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
         newbullet.GetComponent<MyBullet>().weapon = weapon;
+        newbullet.GetComponent<MyBullet>().fromPlayer = true;
         weapon.ammo--;
         yield return new WaitForSeconds(weapon.rof);
         allowFire = true;

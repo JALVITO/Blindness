@@ -5,7 +5,7 @@ using UnityEngine;
 public class Throw : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Stack items = new Stack();
+    public Stack<string> items = new Stack<string>();
     [SerializeField] private GameObject[] throwables;
 	  [SerializeField] private Transform shotSpawn;
     private GameObject clone;

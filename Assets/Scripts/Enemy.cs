@@ -93,9 +93,10 @@ public class Enemy : MonoBehaviour
         if (hasWeapon){
             GameObject newbullet = Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
             newbullet.GetComponent<MyBullet>().weapon = transform.GetChild(1).gameObject.GetComponent<Weapon>();
+            newbullet.GetComponent<MyBullet>().fromPlayer = false;
         }
         
-        yield return new WaitForSeconds(rof);
+        yield return new WaitForSeconds( Random.Range(rof,rof*2) );
         allowFire = true;
     }
 

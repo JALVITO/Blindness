@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: 10
   range: 1
-  rof: 0.75
+  rof: 0.5
   damage: 34
   noise: 10
   speed: 15

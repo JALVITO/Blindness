@@ -5,6 +5,7 @@ using UnityEngine;
 public class MyBullet : MonoBehaviour
 {
 	public int bulletSpeed;
+  public bool fromPlayer;
 
   public Weapon weapon;
 
@@ -28,6 +29,7 @@ public class MyBullet : MonoBehaviour
       rb = Instance.GetComponent<Rigidbody>();
       rb.velocity = transform.forward * bulletSpeed;
       rend = Instance.GetComponentInChildren<Renderer>();
+
       // Debug.Log("X: " + transform.forward.x);
       // Debug.Log("Y: " + transform.forward.y);
       // Debug.Log("Z: " + transform.forward.z);
@@ -67,7 +69,7 @@ public class MyBullet : MonoBehaviour
       else if (col.gameObject.tag != "Intangible"){
         Destroy(gameObject);
         int damage = weapon.damage; 
-        if (col.gameObject.tag == "Player"){
+        if (col.gameObject.tag == "Player" && !fromPlayer){
           col.gameObject.GetComponent<Game>().affectHP(-damage);
         }
         else if (col.gameObject.tag == "Enemy"){
