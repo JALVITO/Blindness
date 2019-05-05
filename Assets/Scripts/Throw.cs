@@ -12,11 +12,6 @@ public class Throw : MonoBehaviour
     private string myName;
     void Start()
     {
-      items.Push("Mug");
-      items.Push("Mug");
-      items.Push("Clipboard");
-      items.Push("Clipboard");
-      items.Push("Mug");
     }
 
     // Update is called once per frame
@@ -39,6 +34,7 @@ public class Throw : MonoBehaviour
           if(index != -1){
             clone = Instantiate(throwables[index], shotSpawn.position,  shotSpawn.rotation);
             clone.name = myName;
+            clone.GetComponent<Rigidbody>().AddForce(transform.forward * clone.GetComponent<Throwable>().throwSpeed);
           }
         }
     }

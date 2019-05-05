@@ -8,8 +8,9 @@ public class Game : MonoBehaviour
 
     public bool hasKey;
     private int HP;
-    private int triggeredEnemies;
+    public int triggeredEnemies;
     public bool hasWeapon;
+    public bool allowLight;
     [SerializeField] private GameObject BGsongs;
     [SerializeField] private GameObject Hurt;
 
@@ -18,13 +19,15 @@ public class Game : MonoBehaviour
     {
         HP = 100;
         triggeredEnemies = 0;
-        hasWeapon = false;
+        hasWeapon = true;
+        allowLight = false;
         StartCoroutine(heal());
+        StartCoroutine(Mask());
     }
 
     void Update(){
         // Debug.Log("Triggered: " + triggeredEnemies);
-        Debug.Log(HP);
+        // Debug.Log(HP);
         Hurt.GetComponent<Image>().color = new Color32(255,255,225,(byte)((1-HP/100.0)*255));
 
         if (HP > 66){
@@ -85,5 +88,10 @@ public class Game : MonoBehaviour
             HP = Mathf.Min(HP+4,100);
             yield return new WaitForSeconds(1);
         }
+    }
+
+    public IEnumerator Mask(){
+        yield return new WaitForSeconds(2);
+        allowLight = true;
     }
 }

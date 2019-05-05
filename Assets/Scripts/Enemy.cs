@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     int HP;
+    float rof;
     NavMeshAgent agent;
     Ray ray;
     RaycastHit hit;
@@ -13,6 +14,8 @@ public class Enemy : MonoBehaviour
     bool triggered;
     bool triggeredLast;
     bool allowFire;
+    bool hasWeapon;
+    bool waiting;
     GameObject FPSController;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject firstCheckpoint;
@@ -26,6 +29,8 @@ public class Enemy : MonoBehaviour
     {
         HP = 100;
         allowFire = true;
+        hasWeapon = true;
+        rof = transform.GetChild(1).gameObject.GetComponent<Weapon>().rof;
         FPSController = player.transform.parent.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(firstCheckpoint.transform.position);
@@ -58,8 +63,9 @@ public class Enemy : MonoBehaviour
                     StartCoroutine(fireAtPlayer());
             }
             else {
-                if (triggered && agent.remainingDistance < 2){
+                if (triggered && agent.remainingDistance < 2 && !waiting){
                         triggered = false;
+                        StartCoroutine(confusion());
                         agent.SetDestination(firstCheckpoint.transform.position);
                     }
             }
@@ -69,7 +75,7 @@ public class Enemy : MonoBehaviour
     public void affectHP(int delta){
         HP += delta;
         if (HP <= 0){
-            Debug.Log("Enemy dead");
+            // Debug.Log("Enemy dead");
             ThrowWeapon();
             FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
             gameObject.GetComponent<AudioSource>().Play();
@@ -84,10 +90,12 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator fireAtPlayer(){
         allowFire = false;
-        GameObject newbullet = Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
-        newbullet.GetComponent<MyBullet>().weapon = transform.GetChild(1).gameObject.GetComponent<Weapon>();
+        if (hasWeapon){
+            GameObject newbullet = Instantiate(bullet, shotSpawn.position,  shotSpawn.rotation);
+            newbullet.GetComponent<MyBullet>().weapon = transform.GetChild(1).gameObject.GetComponent<Weapon>();
+        }
         
-        yield return new WaitForSeconds(transform.GetChild(1).gameObject.GetComponent<Weapon>().rof);
+        yield return new WaitForSeconds(rof);
         allowFire = true;
     }
 
@@ -99,11 +107,19 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    IEnumerator confusion(){
+        waiting = true;
+        yield return new WaitForSeconds(3);
+        waiting = false;
+    }
+
     private void ThrowWeapon(){
         GameObject curGun = gameObject.transform.GetChild(1).gameObject;
         curGun.GetComponent<Rigidbody>().isKinematic = false;
         curGun.GetComponent<Rigidbody>().useGravity = true;
         curGun.transform.parent = null;
         curGun.GetComponent<Rigidbody>().AddForce(curGun.transform.forward * 800);
+        allowFire = false;
+        hasWeapon = false;
     }
 }

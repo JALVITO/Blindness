@@ -31,7 +31,7 @@ public class MyBullet : MonoBehaviour
       // Debug.Log("X: " + transform.forward.x);
       // Debug.Log("Y: " + transform.forward.y);
       // Debug.Log("Z: " + transform.forward.z);
-      Debug.Log(range);
+      // Debug.Log(range);
       StartCoroutine(despawnBullet(range));
     }
 

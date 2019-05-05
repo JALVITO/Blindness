@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6356991865716231979}
   - component: {fileID: 5280102089725842980}
   - component: {fileID: 5993075613837307559}
+  - component: {fileID: 9038695661995158184}
+  - component: {fileID: 9077580537983940723}
   m_Layer: 0
   m_Name: Throwable hit
   m_TagString: Untagged
@@ -43,8 +45,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.01
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -84,3 +86,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i: 3
   r: 5
+--- !u!135 &9038695661995158184
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492958425146833711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.00001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9077580537983940723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492958425146833711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbda0d41856ae441c86ffad003b716f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundLevel: 10
+  soundDecrease: 0.05

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8982430079428986372}
   - component: {fileID: 1575805575065814392}
   - component: {fileID: 6027115764190430944}
-  - component: {fileID: 5459788921050943467}
   - component: {fileID: 2048693242031364954}
   m_Layer: 0
   m_Name: Clipboard
@@ -124,22 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1b335015a78ae46b97419b92ac085c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 500
+  throwSpeed: 800
   itemHit: {fileID: 7492958425146833711, guid: 057239f41a5b82d49af12b101cdad25d, type: 3}
---- !u!114 &5459788921050943467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3998619794198238858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbda0d41856ae441c86ffad003b716f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundLevel: 0
-  soundDecrease: 0
+  game: {fileID: 1676888645, guid: 9e43b226c39e04a31bc341c2b2aabd85, type: 3}
 --- !u!82 &2048693242031364954
 AudioSource:
   m_ObjectHideFlags: 0

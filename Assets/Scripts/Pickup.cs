@@ -21,24 +21,24 @@ public class Pickup : MonoBehaviour
     {
       // Debug.Log("AAAAAAH");
         if(Input.GetKeyDown(KeyCode.E)){
-          Debug.Log("E");
+          // Debug.Log("E");
           Ray ray = cam.ViewportPointToRay(new  Vector3(0.5F, 0.5F, 0));
           RaycastHit hit;
           if (Physics.Raycast(ray, out hit,3)){
-              print("I'm looking at " + hit.transform.name);
+              // print("I'm looking at " + hit.transform.name);
               if(hit.transform.tag=="Throwable"){
-                Debug.Log("throwable");
+                // Debug.Log("throwable");
                 inventory.addItem(hit.transform.name);
                 Destroy(hit.transform.gameObject);
               } else if(hit.transform.tag == "Key"){
-                Debug.Log("grabbing key");
+                // Debug.Log("grabbing key");
                 game.hasKey = true;
                 Destroy(hit.transform.gameObject);
               } else if (hit.transform.tag == "Door"){
-                if(game.hasKey){
+                if(game.hasKey && game.triggeredEnemies == 0){
                   Debug.Log("Change level");
                 } else {
-                  Debug.Log("Needs key to enter");
+                  // Debug.Log("Needs key to enter");
                 }
               } else if (hit.transform.tag == "Weapon"){
                 Transform player = character.transform.GetChild(0);
@@ -53,8 +53,8 @@ public class Pickup : MonoBehaviour
                 hit.transform.Rotate(0,90,0);
                 character.GetComponent<Game>().hasWeapon = true;
               }
-           } else
-              print("I'm looking at nothing!");
+           } else {
+              // print("I'm looking at nothing!");
           }
         }
     }

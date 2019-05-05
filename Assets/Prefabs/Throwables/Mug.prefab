@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 4333195928611865431}
   - component: {fileID: 1843529482105455428}
   - component: {fileID: 3237661062140633881}
-  - component: {fileID: 1696662101858681966}
-  - component: {fileID: 6519373124128697508}
   - component: {fileID: 8592929140436003007}
+  - component: {fileID: 6105958650919017672}
   m_Layer: 0
   m_Name: Mug
   m_TagString: Throwable
@@ -95,8 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1b335015a78ae46b97419b92ac085c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 400
+  throwSpeed: 800
   itemHit: {fileID: 7492958425146833711, guid: 057239f41a5b82d49af12b101cdad25d, type: 3}
+  game: {fileID: 1676888645, guid: 9e43b226c39e04a31bc341c2b2aabd85, type: 3}
 --- !u!136 &1843529482105455428
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -108,9 +108,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.016
-  m_Height: 0.05
+  m_Height: 0.04
   m_Direction: 0
-  m_Center: {x: 0, y: -0.016, z: -0.00040427194}
+  m_Center: {x: 0.002, y: -0.016, z: -0.00040427194}
 --- !u!54 &3237661062140633881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,33 +127,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1696662101858681966
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416476021288172619}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.00001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6519373124128697508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416476021288172619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbda0d41856ae441c86ffad003b716f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundLevel: 0
-  soundDecrease: 0
 --- !u!82 &8592929140436003007
 AudioSource:
   m_ObjectHideFlags: 0
@@ -251,3 +224,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &6105958650919017672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416476021288172619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0007284613, y: 0.02956796, z: 0.013091324}
+  m_Center: {x: -0.017461635, y: -0.017012754, z: -0.00112569}

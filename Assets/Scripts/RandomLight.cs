@@ -24,7 +24,7 @@ public class RandomLight : MonoBehaviour
     private IEnumerator randomLight(){
     	while(true){
     		float newRange = Random.Range(0.0F,25.0F);
-    		Debug.Log(newRange);
+    		// Debug.Log(newRange);
     		light.range = Mathf.Max(light.range, newRange);
     		yield return new WaitForSeconds(0.04F);
     	}
