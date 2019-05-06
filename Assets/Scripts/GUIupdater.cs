@@ -31,7 +31,5 @@ public class GUIupdater : MonoBehaviour
         }
 
         throwText.text = thrw.items.Count.ToString();
-
-
     }
 }

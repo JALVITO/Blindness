@@ -8,7 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MVP.unity
     guid: 16bc073e3610f4882a93903c675e27ae
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4204249af06b94d889e9e714a573acf1
+  - enabled: 1
+    path: Assets/Scenes/L1 Pillars.unity
+    guid: e6cd382bfa4644f1bbfe7111faba33b7
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 22b2c4d92e9de4c538a2697c9492d841
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 83f6aaadf78084c4a866312a88f37230
   m_configObjects: {}

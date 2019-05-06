@@ -13,7 +13,7 @@ public class Throwable : MonoBehaviour
     
     void Start()
     {
-        sound = gameObject.GetComponent<AudioSource>();
+        sound = gameObject.GetComponents<AudioSource>()[0];
         game = GameObject.FindWithTag("Player").GetComponent<Game>();
         // Debug.Log(gameObject.name);
     }

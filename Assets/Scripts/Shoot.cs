@@ -24,6 +24,7 @@ public class Shoot : MonoBehaviour
             Weapon weapon =  gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<Weapon>();
             if (weapon.ammo > 0 && allowFire){
                 StartCoroutine(fire(weapon));
+                StartCoroutine(recoil(weapon));
             }
 
         }
@@ -51,5 +52,36 @@ public class Shoot : MonoBehaviour
         weapon.ammo--;
         yield return new WaitForSeconds(weapon.rof);
         allowFire = true;
+    }
+
+    IEnumerator recoil(Weapon weapon){
+        if (weapon.type == 3){
+            for (float x = 1; x <= 5; x+=0.5F){
+                weapon.gameObject.transform.Rotate(0,0,x);
+                yield return new WaitForSeconds(weapon.rof/40.0F);
+            }
+            for (float x = 1; x <= 5; x+=0.5F){
+                weapon.gameObject.transform.Translate(0,-x/400.0F,x/100.0F);
+                yield return new WaitForSeconds(weapon.rof/40.0F);
+            }
+            for (float x = 1; x <= 5; x+=0.5F){
+                weapon.gameObject.transform.Translate(0,x/400.0F,-x/100.0F);
+                yield return new WaitForSeconds(weapon.rof/40.0F);
+            }
+            for (float x = 5; x >= 0; x-=0.5F){
+                weapon.gameObject.transform.Rotate(0,0,-x);
+                yield return new WaitForSeconds(weapon.rof/40.0F);
+            }
+        }
+        else{
+            for (int x = 1; x <= 10; x++){
+                weapon.gameObject.transform.Rotate(0,0,-x);
+                yield return new WaitForSeconds(weapon.rof/40.0F);
+            }
+            for (int x = 10; x >= 0; x--){
+                weapon.gameObject.transform.Rotate(0,0,x);
+                yield return new WaitForSeconds(weapon.rof/40.0F);
+            }
+        }
     }
 }

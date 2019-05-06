@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class Game : MonoBehaviour
         HP += delta;
         gameObject.transform.GetChild(0).gameObject.GetComponent<CameraShake>().enabled = true;
         if (HP <= 0){
-            Debug.Log("You died");
+            SceneManager.LoadScene("GameOver");
         }
     }
 

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     bool allowFire;
     bool hasWeapon;
     bool waiting;
+    bool dying;
     GameObject FPSController;
     GameObject curGun;
     [SerializeField] private GameObject player;
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour
             //Debug.Log("Distance: " + (hit.distance < sightRange));
             //Debug.Log("Angle: " + (Vector3.Angle(ray.direction,transform.forward) < 70));
 
-            if (hit.collider.gameObject.tag == "Player" && hit.distance < sightRange && Vector3.Angle(ray.direction,transform.forward) < 70){
+            if (hit.collider.gameObject.tag == "Player" && hit.distance < sightRange && Vector3.Angle(ray.direction,transform.forward) < 80){
                 trigger(hit.collider);
                 if (allowFire)
                     StartCoroutine(fireAtPlayer());
@@ -76,8 +77,9 @@ public class Enemy : MonoBehaviour
 
     public void affectHP(int delta){
         HP += delta;
-        if (HP <= 0){
+        if (HP <= 0 && !dying){
             // Debug.Log("Enemy dead");
+            dying = true;
             ThrowWeapon();
             FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
             gameObject.GetComponent<AudioSource>().Play();
