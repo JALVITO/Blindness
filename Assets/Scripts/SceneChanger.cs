@@ -10,6 +10,12 @@ public class SceneChanger : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
     public void changeScene(string scene){
-        SceneManager.LoadScene(scene);
+		
+		StartCoroutine(sceneDelay(scene));
     }
+
+	IEnumerator sceneDelay(string scene){
+		yield return new WaitForSeconds(0.75F);
+		SceneManager.LoadScene(scene);
+	}
 }
