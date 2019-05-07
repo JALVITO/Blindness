@@ -57,13 +57,19 @@ public class GUIupdater : MonoBehaviour
 	}
 
 	IEnumerator countdown(int timerVal){
-		while(timerVal > 0){
+		while(timerVal > 0 && game.triggeredEnemies > 0){
 			timerText.text = timerVal.ToString();
 			yield return new WaitForSeconds(1);
 			timerVal--;
 		}
-		timerText.text = "Time's up!";
-		yield return new WaitForSeconds(1);
-		SceneManager.LoadScene("GameOver");
+		if (game.triggeredEnemies == 0) {
+			timerText.text = "Safe";
+			timerOn = false;
+		}
+		else {
+			timerText.text = "Time's up!";
+			yield return new WaitForSeconds (1);
+			SceneManager.LoadScene ("GameOver");
+		}
 	}
 }
