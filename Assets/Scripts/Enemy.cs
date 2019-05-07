@@ -6,19 +6,25 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     int HP;
+    int step;
     float rof;
     NavMeshAgent agent;
     Ray ray;
     RaycastHit hit;
-
+    private Animator anim;
+    private Light footLight;
+    private float m_StepCycle;
+    private float m_NextStep;
+    private float m_StepInterval;
     bool triggered;
     bool triggeredLast;
     bool allowFire;
     bool hasWeapon;
     bool waiting;
-    bool dying;
+    public bool dying;
     GameObject FPSController;
     GameObject curGun;
+    
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject firstCheckpoint;
     [SerializeField] private int sightRange;
@@ -29,6 +35,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        step = 0;
         HP = 100;
         allowFire = true;
         hasWeapon = true;
@@ -37,6 +44,13 @@ public class Enemy : MonoBehaviour
         FPSController = player.transform.parent.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(firstCheckpoint.transform.position);
+        anim = transform.GetChild(2).GetComponent<Animator>();
+        footLight = transform.GetChild(3).GetComponent<Light>();
+        footLight.range = 10;
+        footLight.intensity = 0;
+        m_StepCycle = 0f;
+        m_NextStep = m_StepCycle/2f;
+        m_StepInterval = 4;
     }
 
     // Update is called once per frame
@@ -57,6 +71,7 @@ public class Enemy : MonoBehaviour
 		if(hasWeapon && curGun.transform.parent != this.transform){
 			curGun = null;
 			hasWeapon = false;
+            anim.SetBool("unarmed", true);
 		}
 
         if (Physics.Raycast(ray, out hit)){
@@ -66,7 +81,8 @@ public class Enemy : MonoBehaviour
             //Debug.Log("Angle: " + (Vector3.Angle(ray.direction,transform.forward) < 70));
 
             if (hit.collider.gameObject.tag == "Player" && hit.distance < sightRange && Vector3.Angle(ray.direction,transform.forward) < 80){
-                trigger(hit.collider);
+                if (!dying)
+                    trigger(hit.collider);
                 if (allowFire)
                     StartCoroutine(fireAtPlayer());
             }
@@ -74,29 +90,40 @@ public class Enemy : MonoBehaviour
                 if (triggered && agent.remainingDistance < 2 && !waiting){
                         triggered = false;
                         StartCoroutine(confusion());
+                        anim.SetBool("alerted",false);
                         agent.SetDestination(firstCheckpoint.transform.position);
+
                     }
             }
         }
     }
 
+    public void FixedUpdate(){
+        float speed = triggered ? 5 : 10;
+        ProgressStepCycle(speed);
+    }
+
     public void affectHP(int delta){
         HP += delta;
         if (HP <= 0 && !dying){
-            // Debug.Log("Enemy dead");
+            // Debug.Log("Dying...");
             dying = true;
 			if(hasWeapon){
 				
             	ThrowWeapon();
 			}
-            FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
-            gameObject.GetComponent<AudioSource>().Play();
+            // Debug.Log("Triggered: " + triggered);
+            if (triggered){
+                FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
+            }
+            gameObject.GetComponents<AudioSource>()[0].Play();
             StartCoroutine(enemyFall());
         }
     }
 
     public void trigger(Collider col){
         triggered = true;
+        anim.SetBool("alerted",true);
         agent.SetDestination(col.gameObject.transform.position);
     }
 
@@ -113,10 +140,8 @@ public class Enemy : MonoBehaviour
     }
 
     public IEnumerator enemyFall(){
-        for (int x = 0; x < 90; x+=3){
-            gameObject.transform.Rotate(-x,0,0);
-            yield return new WaitForSeconds(0.001F);
-        }
+        anim.SetTrigger("dead");
+        yield return new WaitForSeconds(2.5F);
         Destroy(gameObject);
     }
 
@@ -133,5 +158,32 @@ public class Enemy : MonoBehaviour
         curGun.GetComponent<Rigidbody>().AddForce(curGun.transform.forward * 800);
         allowFire = false;
         hasWeapon = false;
+    }
+
+    private void ProgressStepCycle(float speed){
+        m_StepCycle += (float)(speed*(triggered ? 1f : 0.7))*Time.fixedDeltaTime;
+        // Debug.Log(m_StepCycle);
+        if (!(m_StepCycle > m_NextStep))
+            return;
+
+        m_NextStep = m_StepCycle + m_StepInterval;
+        PlayFootStepAudio();
+    }
+
+    private void PlayFootStepAudio(){
+        step = (step+1)%2;
+        gameObject.GetComponents<AudioSource>()[step+1].Play();
+        StartCoroutine(drawSound(1,5));
+    }
+
+    public IEnumerator drawSound(int i, int r){
+        footLight.intensity = i/2.0F;
+    	footLight.range = r;
+
+        while (footLight.intensity > 0){
+    		footLight.intensity -= i/60.0F;
+    		footLight.range += r/60.0F;
+    		yield return new WaitForSeconds(0.002F);
+    	}
     }
 }

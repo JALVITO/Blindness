@@ -29,8 +29,9 @@ public class Game : MonoBehaviour
     }
 
     void Update(){
-        // Debug.Log("Triggered: " + triggeredEnemies);
+        Debug.Log("Triggered: " + triggeredEnemies);
         // Debug.Log(HP);
+        
         Hurt.GetComponent<Image>().color = new Color32(255,255,225,(byte)((1-HP/100.0)*255));
 
         if (HP > 66){
@@ -62,7 +63,7 @@ public class Game : MonoBehaviour
         AudioSource calm = BGsongs.GetComponents<AudioSource>()[0];
         AudioSource alert = BGsongs.GetComponents<AudioSource>()[1];
 
-        if (triggeredEnemies != 0){
+        if (triggeredEnemies > 0){
             StartCoroutine(transition(true,calm,alert));
         }
         else{

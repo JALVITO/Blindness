@@ -52,7 +52,7 @@ public class Pickup : MonoBehaviour
               }
             }else if (hit.transform.tag == "Door"){
               if(game.hasKey){
-                if (game.triggeredEnemies == 0){
+                if (game.triggeredEnemies <= 0){
                   interactText.text = "Press E Open Door";
                   if(Input.GetKeyDown(KeyCode.E)){
                     SceneManager.LoadScene("Win");

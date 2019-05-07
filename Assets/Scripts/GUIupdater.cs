@@ -15,6 +15,10 @@ public class GUIupdater : MonoBehaviour
     public Game game;
     public Throw thrw;
     public Weapon weapon;
+		public GameObject SafeBG;
+
+		public GameObject AlertBG;
+		public GameObject Alarm;
 
 
 	private bool timerOn;
@@ -26,15 +30,15 @@ public class GUIupdater : MonoBehaviour
         game = gameObject.GetComponent<Game>();
         thrw = gameObject.GetComponent<Throw>(); 
         weapon = gameObject.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Weapon>();
-		timerOn = false;
-		sceneName = SceneManager.GetActiveScene().name;
-		if(Equals(sceneName,"L1 Pillars")){
-			timerValue = 10;
-		}
-		else{
-			timerValue = 0;
-		}
-		//Continuar else if para todos los niveles
+				timerOn = false;
+				sceneName = SceneManager.GetActiveScene().name;
+				if(Equals(sceneName,"L1 Pillars")){
+					timerValue = 10;
+				}
+				else{
+					timerValue = 0;
+				}
+				//Continuar else if para todos los niveles
     }
 
     // Update is called once per frame
@@ -52,23 +56,30 @@ public class GUIupdater : MonoBehaviour
 	public void startTimer(){
 		if(!timerOn){
 			timerOn = true;
+			SafeBG.SetActive(false);
+			AlertBG.SetActive(true);
 			StartCoroutine(countdown(timerValue));
 		}
 	}
 
 	IEnumerator countdown(int timerVal){
 		while(timerVal > 0 && game.triggeredEnemies > 0){
-			timerText.text = timerVal.ToString();
+			AlertBG.GetComponent<RectTransform>().sizeDelta = new Vector2((timerVal/10.0F)*300,50);
+			timerText.text = "Time until alarm: " + timerVal.ToString();
 			yield return new WaitForSeconds(1);
 			timerVal--;
 		}
 		if (game.triggeredEnemies == 0) {
+			SafeBG.SetActive(true);
+			AlertBG.SetActive(false);
 			timerText.text = "Safe";
 			timerOn = false;
 		}
 		else {
-			timerText.text = "Time's up!";
-			yield return new WaitForSeconds (1);
+			AlertBG.SetActive(false);
+			timerText.text = "Mission failed!";
+			Alarm.GetComponent<AudioSource>().Play();
+			yield return new WaitForSeconds (3);
 			SceneManager.LoadScene ("GameOver");
 		}
 	}

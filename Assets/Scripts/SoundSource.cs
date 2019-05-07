@@ -22,8 +22,10 @@ public class SoundSource : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider col){
-        if (col.gameObject.tag == "Enemy")
-            col.gameObject.GetComponent<Enemy>().trigger(GetComponent<SphereCollider>());
+        if (col.gameObject.tag == "Enemy"){
+            if (!col.gameObject.GetComponent<Enemy>().dying)
+                col.gameObject.GetComponent<Enemy>().trigger(GetComponent<SphereCollider>());
+        }
     }
 
     public void addSound(float newSound){
