@@ -86,6 +86,7 @@ public class Enemy : MonoBehaviour
             // Debug.Log("Enemy dead");
             dying = true;
 			if(hasWeapon){
+				
             	ThrowWeapon();
 			}
             FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);

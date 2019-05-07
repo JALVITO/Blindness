@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public int triggeredEnemies;
     public bool hasWeapon;
     public bool allowLight;
+	public GUIupdater guiupdater;
     [SerializeField] private GameObject BGsongs;
     [SerializeField] private GameObject Hurt;
 
@@ -24,6 +25,7 @@ public class Game : MonoBehaviour
         allowLight = false;
         StartCoroutine(heal());
         StartCoroutine(Mask());
+		guiupdater = gameObject.GetComponent<GUIupdater>();
     }
 
     void Update(){
@@ -54,6 +56,9 @@ public class Game : MonoBehaviour
 
     public void affectTriggeredEnemies(int delta){
         triggeredEnemies += delta;
+		if(triggeredEnemies > 0){
+			guiupdater.startTimer();
+		}
         AudioSource calm = BGsongs.GetComponents<AudioSource>()[0];
         AudioSource alert = BGsongs.GetComponents<AudioSource>()[1];
 
