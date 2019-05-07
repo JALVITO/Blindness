@@ -54,6 +54,11 @@ public class Enemy : MonoBehaviour
         ray.direction = player.transform.position-transform.position;
         Debug.DrawRay(ray.origin, ray.direction*100, Color.green);
 
+		if(hasWeapon && curGun.transform.parent != this.transform){
+			curGun = null;
+			hasWeapon = false;
+		}
+
         if (Physics.Raycast(ray, out hit)){
 
             //Debug.Log("Player: " + (hit.collider.gameObject.tag == "Player"));
@@ -80,7 +85,9 @@ public class Enemy : MonoBehaviour
         if (HP <= 0 && !dying){
             // Debug.Log("Enemy dead");
             dying = true;
-            ThrowWeapon();
+			if(hasWeapon){
+            	ThrowWeapon();
+			}
             FPSController.GetComponent<Game>().affectTriggeredEnemies(-1);
             gameObject.GetComponent<AudioSource>().Play();
             StartCoroutine(enemyFall());
