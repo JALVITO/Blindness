@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: 5
   range: 5
-  rof: 2.5
+  rof: 2
   damage: 50
   noise: 20
   speed: 50
