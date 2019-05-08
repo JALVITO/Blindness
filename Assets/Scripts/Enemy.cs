@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     RaycastHit hit;
     private Animator anim;
     private Light footLight;
+	private Light hitLight;
     private float m_StepCycle;
     private float m_NextStep;
     private float m_StepInterval;
@@ -48,6 +49,9 @@ public class Enemy : MonoBehaviour
         footLight = transform.GetChild(3).GetComponent<Light>();
         footLight.range = 10;
         footLight.intensity = 0;
+		hitLight = transform.GetChild(4).GetComponent<Light>();
+		hitLight.range = 10;
+		hitLight.intensity = 0;
         m_StepCycle = 0f;
         m_NextStep = m_StepCycle/2f;
         m_StepInterval = 4;
@@ -105,6 +109,7 @@ public class Enemy : MonoBehaviour
 
     public void affectHP(int delta){
         HP += delta;
+		StartCoroutine(drawHit(3,5));
         if (HP <= 0 && !dying){
             // Debug.Log("Dying...");
             dying = true;
@@ -186,4 +191,16 @@ public class Enemy : MonoBehaviour
     		yield return new WaitForSeconds(0.002F);
     	}
     }
+
+	public IEnumerator drawHit(int i, int r){
+		Debug.Log("Yeaboi");
+		hitLight.intensity = i/2.0F;
+		hitLight.range = r;
+
+		while(hitLight.intensity > 0){
+			hitLight.intensity -= i/60.0F;
+			hitLight.range += r/60.0F;
+			yield return new WaitForSeconds(0.002F);
+		}
+	}
 }

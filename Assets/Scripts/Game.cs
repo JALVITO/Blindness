@@ -57,6 +57,9 @@ public class Game : MonoBehaviour
 
     public void affectTriggeredEnemies(int delta){
         triggeredEnemies += delta;
+		if(triggeredEnemies < 0){
+			triggeredEnemies = 0;
+		}
 		if(triggeredEnemies > 0){
 			guiupdater.startTimer();
 		}
