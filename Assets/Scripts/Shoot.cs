@@ -56,6 +56,7 @@ public class Shoot : MonoBehaviour
 
     IEnumerator recoil(Weapon weapon){
         if (weapon.type == 3){
+            /*
             for (float x = 1; x <= 5; x+=0.5F){
                 weapon.gameObject.transform.Rotate(0,0,x);
                 yield return new WaitForSeconds(weapon.rof/40.0F);
@@ -71,16 +72,33 @@ public class Shoot : MonoBehaviour
             for (float x = 5; x >= 0; x-=0.5F){
                 weapon.gameObject.transform.Rotate(0,0,-x);
                 yield return new WaitForSeconds(weapon.rof/40.0F);
+            } */
+            for (int x = 1; x <= 20; x++){
+                weapon.gameObject.transform.Rotate(Vector3.forward, 50*Time.deltaTime);
+                yield return new WaitForSeconds(0.01F);
+            }
+            for (int x = 1; x <= 10; x++){
+                weapon.gameObject.transform.Translate(0,-0.015F,0.04F);
+                yield return new WaitForSeconds(0.01F);
+            }
+            gameObject.transform.GetChild(0).transform.GetChild(3).gameObject.GetComponents<AudioSource>()[1].Play();
+            for (int x = 1; x <= 10; x++){
+                weapon.gameObject.transform.Translate(0,0.015F,-0.04F);
+                yield return new WaitForSeconds(0.01F);
+            }
+            for (int x = 1; x <= 20; x++){
+                weapon.gameObject.transform.Rotate(Vector3.forward, -50*Time.deltaTime);
+                yield return new WaitForSeconds(0.01F);
             }
         }
         else{
             for (int x = 1; x <= 10; x++){
                 weapon.gameObject.transform.Rotate(0,0,-x);
-                yield return new WaitForSeconds(weapon.rof/40.0F);
+                yield return new WaitForSeconds(0.0125F);
             }
             for (int x = 10; x >= 0; x--){
                 weapon.gameObject.transform.Rotate(0,0,x);
-                yield return new WaitForSeconds(weapon.rof/40.0F);
+                yield return new WaitForSeconds(0.0125F);
             }
         }
     }
