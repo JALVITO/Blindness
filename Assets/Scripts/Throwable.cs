@@ -31,8 +31,15 @@ public class Throwable : MonoBehaviour
         sound.Play();
         Instantiate(itemHit, gameObject.transform.position, gameObject.transform.rotation);
       }
-      else if (colInfo.transform.tag=="Enemy"){
-        colInfo.gameObject.GetComponent<Enemy>().returnHome();
+      else if (colInfo.transform.tag=="Enemy" ){
+        if(colInfo.gameObject.GetComponent<Enemy>().triggered){
+          float percentage = Random.Range(0,1);
+          if(percentage <= 0.35f){
+            colInfo.gameObject.GetComponent<Enemy>().affectHP(-100);
+          }
+        } else {
+          colInfo.gameObject.GetComponent<Enemy>().returnHome();
+        }
       }
     }
 
