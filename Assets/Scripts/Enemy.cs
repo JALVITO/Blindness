@@ -127,8 +127,10 @@ public class Enemy : MonoBehaviour
     }
 
     public void trigger(Collider col){
-        triggered = true;
-        anim.SetBool("alerted",true);
+        if (col.gameObject.tag == "Intangible" || col.gameObject.tag == "Player"){
+            triggered = true;
+            anim.SetBool("alerted",true);
+        }
         agent.SetDestination(col.gameObject.transform.position);
     }
 
@@ -203,4 +205,8 @@ public class Enemy : MonoBehaviour
 			yield return new WaitForSeconds(0.002F);
 		}
 	}
+
+    public void returnHome(){
+        agent.SetDestination(firstCheckpoint.transform.position);
+    }
 }

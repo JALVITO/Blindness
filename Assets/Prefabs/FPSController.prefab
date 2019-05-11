@@ -732,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1676888637}
+  interactText: {fileID: 0}
 --- !u!114 &1676888643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,6 +748,9 @@ MonoBehaviour:
   throwables:
   - {fileID: 6416476021288172619, guid: 1fdbba13ed5c1264c81d8d8f4032aa80, type: 3}
   - {fileID: 3998619794198238858, guid: 0fe136add98fcec4b8fda43ae18a8b4e, type: 3}
+  - {fileID: 2170639277001075346, guid: 96aacef75887f4e90a51c8446ef5d26d, type: 3}
+  - {fileID: 9188404971359944040, guid: 7a6e12666efe0410080c88065541ebde, type: 3}
+  - {fileID: 1530576594, guid: 26761b024822843d58dd0e003e216ea7, type: 3}
   shotSpawn: {fileID: 1914794560}
 --- !u!114 &1676888645
 MonoBehaviour:
@@ -764,6 +768,7 @@ MonoBehaviour:
   triggeredEnemies: 0
   hasWeapon: 1
   allowLight: 0
+  guiupdater: {fileID: 0}
   BGsongs: {fileID: 0}
   Hurt: {fileID: 0}
 --- !u!1 &1914794559

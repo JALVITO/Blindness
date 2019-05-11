@@ -41,6 +41,7 @@ public class Pickup : MonoBehaviour
               interactText.text = "Press E to Pick Up Key";
               if(Input.GetKeyDown(KeyCode.E)){
                 game.hasKey = true;
+                gameObject.GetComponents<AudioSource>()[3].Play();
                 Destroy(hit.transform.gameObject);
                 interactText.text = "";
               }
@@ -55,7 +56,12 @@ public class Pickup : MonoBehaviour
                 if (game.triggeredEnemies <= 0){
                   interactText.text = "Press E Open Door";
                   if(Input.GetKeyDown(KeyCode.E)){
-                    SceneManager.LoadScene("Win");
+                    if (SceneManager.GetActiveScene().name == "L0 Tutorial")
+                      SceneManager.LoadScene("L1 Pillars");
+                    else if (SceneManager.GetActiveScene().name == "L1 Pillars")
+                      SceneManager.LoadScene("L2 Technical");
+                   else if (SceneManager.GetActiveScene().name == "L2 Technical")
+                      SceneManager.LoadScene("Win");
                   }
                 }
                 else{

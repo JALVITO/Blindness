@@ -31,6 +31,9 @@ public class Throwable : MonoBehaviour
         sound.Play();
         Instantiate(itemHit, gameObject.transform.position, gameObject.transform.rotation);
       }
+      else if (colInfo.transform.tag=="Enemy"){
+        colInfo.gameObject.GetComponent<Enemy>().returnHome();
+      }
     }
 
 }

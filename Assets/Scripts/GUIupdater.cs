@@ -33,7 +33,10 @@ public class GUIupdater : MonoBehaviour
 				timerOn = false;
 				sceneName = SceneManager.GetActiveScene().name;
 				if(Equals(sceneName,"L1 Pillars")){
-					timerValue = 10;
+					timerValue = 20;
+				}
+				else if(Equals(sceneName,"L2 Technical")){
+					timerValue = 20;
 				}
 				else{
 					timerValue = 0;
@@ -64,7 +67,7 @@ public class GUIupdater : MonoBehaviour
 
 	IEnumerator countdown(int timerVal){
 		while(timerVal > 0 && game.triggeredEnemies > 0){
-			AlertBG.GetComponent<RectTransform>().sizeDelta = new Vector2((timerVal/10.0F)*300,50);
+			AlertBG.GetComponent<RectTransform>().sizeDelta = new Vector2((timerVal/20.0F)*300,50);
 			timerText.text = "Time until alarm: " + timerVal.ToString();
 			yield return new WaitForSeconds(1);
 			timerVal--;
@@ -80,7 +83,10 @@ public class GUIupdater : MonoBehaviour
 			timerText.text = "Mission failed!";
 			Alarm.GetComponent<AudioSource>().Play();
 			yield return new WaitForSeconds (3);
-			SceneManager.LoadScene ("GameOver");
+			if (sceneName == "L1 Pillars")
+					SceneManager.LoadScene("GameOverL1");
+			else if (sceneName == "L2 Technical")
+					SceneManager.LoadScene("GameOverL2");
 		}
 	}
 }

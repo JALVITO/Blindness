@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyAnimation
+  m_Name: EnemyIdleAnimation
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: dead
@@ -391,7 +391,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cedd5cc2d92b54102a4bc3d269275199, type: 3}
+  m_Motion: {fileID: 7400000, guid: 9f5780188b4c3464dba3dd367e6213be, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -420,7 +420,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eca9317cf944b4521b8772cdd666aafa, type: 3}
+  m_Motion: {fileID: 7400000, guid: 899257913ec804719915c5bd0b6a91f0, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

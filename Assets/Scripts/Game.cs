@@ -51,7 +51,11 @@ public class Game : MonoBehaviour
         HP += delta;
         gameObject.transform.GetChild(0).gameObject.GetComponent<CameraShake>().enabled = true;
         if (HP <= 0){
-            SceneManager.LoadScene("GameOver");
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (sceneName == "L1 Pillars")
+                SceneManager.LoadScene("GameOverL1");
+            else if (sceneName == "L2 Technical")
+                SceneManager.LoadScene("GameOverL2");
         }
     }
 
