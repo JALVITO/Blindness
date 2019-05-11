@@ -33,7 +33,7 @@ public class Throwable : MonoBehaviour
       }
       else if (colInfo.transform.tag=="Enemy" ){
         if(colInfo.gameObject.GetComponent<Enemy>().triggered){
-          float percentage = Random.Range(0,1);
+          float percentage = Random.Range(0F,1F);
           if(percentage <= 0.35f){
             colInfo.gameObject.GetComponent<Enemy>().affectHP(-100);
           }

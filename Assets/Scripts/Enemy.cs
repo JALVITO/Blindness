@@ -195,7 +195,7 @@ public class Enemy : MonoBehaviour
     }
 
 	public IEnumerator drawHit(int i, int r){
-		Debug.Log("Yeaboi");
+		// Debug.Log("Yeaboi");
 		hitLight.intensity = i/2.0F;
 		hitLight.range = r;
 
