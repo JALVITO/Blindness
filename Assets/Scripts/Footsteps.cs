@@ -35,9 +35,12 @@ public class Footsteps : MonoBehaviour
     	footLight.range = r;
 
     	while (footLight.intensity > 0){
-    		footLight.intensity -= i/60.0F;
-    		footLight.range += r/60.0F;
-    		yield return new WaitForSeconds(0.02F);
+        if(Time.timeScale != 0.0f){
+          footLight.intensity -= i/60.0F;
+          footLight.range += r/60.0F;
+
+        }
+          yield return new WaitForSeconds(0.02F);
     	}
 
     }

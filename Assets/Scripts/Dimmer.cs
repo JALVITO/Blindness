@@ -18,9 +18,11 @@ public class Dimmer : MonoBehaviour
     }
     private IEnumerator dim(){
       while(light.intensity > 0){
-        light.intensity -= i/60.0F;
-        light.range += r/60.0F;
-        yield return new WaitForSeconds(0.02F);
+        if(Time.timeScale != 0.0f){
+          light.intensity -= i/60.0F;
+          light.range += r/60.0F;
+        }
+          yield return new WaitForSeconds(0.02F);
       }
     }
 

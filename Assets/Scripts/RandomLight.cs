@@ -17,16 +17,19 @@ public class RandomLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(light.range>0){
+       if(light.range>0 && Time.timeScale != 0.0f){
        	light.range-=0.4F;
        }
     }
     private IEnumerator randomLight(){
     	while(true){
-    		float newRange = Random.Range(0.0F,25.0F);
-    		// Debug.Log(newRange);
-    		light.range = Mathf.Max(light.range, newRange);
-    		yield return new WaitForSeconds(0.04F);
+        if(Time.timeScale != 0.0f){
+          float newRange = Random.Range(0.0F,25.0F);
+          // Debug.Log(newRange);
+          light.range = Mathf.Max(light.range, newRange);
+
+        }
+          yield return new WaitForSeconds(0.04F);
     	}
     }
 }
