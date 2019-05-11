@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private float m_StepCycle;
     private float m_NextStep;
     private float m_StepInterval;
-    bool triggered;
+    public bool triggered;
     bool triggeredLast;
     bool allowFire;
     bool hasWeapon;
