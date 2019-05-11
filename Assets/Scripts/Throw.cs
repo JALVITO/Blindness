@@ -30,6 +30,15 @@ public class Throw : MonoBehaviour
             case "Clipboard":
               index = 1;
             break; 
+            case "Monitor":
+              index = 2;
+            break; 
+            case "CPU":
+              index = 3;
+            break; 
+            case "Stapler":
+              index = 4;
+            break; 
           }
           if(index != -1){
             clone = Instantiate(throwables[index], shotSpawn.position,  shotSpawn.rotation);

@@ -15,11 +15,20 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4204249af06b94d889e9e714a573acf1
   - enabled: 1
+    path: Assets/Scenes/L0 Tutorial.unity
+    guid: 2c221c6a74629437b825b3d298da2971
+  - enabled: 1
     path: Assets/Scenes/L1 Pillars.unity
     guid: e6cd382bfa4644f1bbfe7111faba33b7
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/L2 Technical.unity
+    guid: f0f796256b44b4688a112685915d5350
+  - enabled: 1
+    path: Assets/Scenes/GameOverL1.unity
     guid: 22b2c4d92e9de4c538a2697c9492d841
+  - enabled: 1
+    path: Assets/Scenes/GameOverL2.unity
+    guid: 2e5b26df1ecca4abba33169051e83da5
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 83f6aaadf78084c4a866312a88f37230
