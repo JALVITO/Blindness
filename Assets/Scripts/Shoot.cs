@@ -20,7 +20,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<Game>().hasWeapon){
+        if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<Game>().hasWeapon && Cursor.lockState == CursorLockMode.Locked){
             Weapon weapon =  gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<Weapon>();
             if (weapon.ammo > 0 && allowFire){
                 StartCoroutine(fire(weapon));
